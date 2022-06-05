@@ -14,8 +14,9 @@
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($contatos as $cadaContato){
-                        $partes = explode(';', $cadaContato);
+                    foreach ($contatos as $cadaContato){//percorre array
+                        $partes = explode(';', $cadaContato);//separa string recuperada do array
+                        // imprime dados recuperados do array na tabela
                          echo "<tr>
                             <td>{$partes[0]}</td>
                             <td>{$partes[1]}</td>
