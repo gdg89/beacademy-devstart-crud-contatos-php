@@ -10,7 +10,7 @@
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Telefone</th>
-                        <th>Ações</th>
+                        <th colspan="2" class="text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,10 +19,13 @@
                         $partes = explode(';', $cadaContato);//separa string recuperada do array
                         // imprime dados recuperados do array na tabela
                          echo "<tr>
-                            <td>{$partes[0]}</td>
-                            <td>{$partes[1]}</td>
-                            <td>{$partes[2]}</td>
-                            <td><a href='/excluir?id={$index}' class='btn btn-danger btn-sm'>Excluir</a></td>
+                                <td>{$partes[0]}</td>
+                                <td>{$partes[1]}</td>
+                                <td>{$partes[2]}</td>
+
+                                <td><a href='/excluir?id={$index}' class='btn btn-danger btn-sm'>Excluir</a></td>
+                                
+                                <td><a href='/editar?id={$index}' class='btn btn-success btn-sm'>Editar</a></td>
                             </tr>";
                             
                         

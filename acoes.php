@@ -39,7 +39,7 @@ function excluir(){
     
     $contatos=file('exercicio-crudContatos/dados/contatos.csv');//recuperar contatos.
 
-    unset($contatos[$id]);
+    unset($contatos[$id]);//elimina posição do
 
     unlink('exercicio-crudContatos/dados/contatos.csv');//elemina todo o arquivo.
 
@@ -50,4 +50,33 @@ function excluir(){
     }
     $mensagem = 'Pronto, contato excluido';
     include 'telas/mensagem.php';//imprime mensagem na tela.
+}
+
+function editar(){
+    $id =$_GET['id'];//recupera indice do elemento que queremos editar.
+    $contatos = file('exercicio-crudContatos/dados/contatos.csv');//recuperar contatos.
+    
+    if($_POST){
+        $nome = $_POST['nome'];//recupera dados do input
+        $email = $_POST['email'];//recupera dados do input
+        $telefone = $_POST['telefone'];// recupera dados do input
+
+        $contatos[$id] = "{$nome};{$email};{$telefone}".PHP_EOL;
+
+        unlink('exercicio-crudContatos/dados/contatos.csv');//elemina todo o arquivo.
+
+
+        $arquivo = fopen('exercicio-crudContatos/dados/contatos.csv','a+');//Crea/abre arquivo
+
+        foreach($contatos as $cadaContato){//Pega cada contato restante do arquivo.
+            fwrite($arquivo, $cadaContato);//rescribe $cadaContato dentro do $arquivo.
+        }
+        fclose($arquivo);
+        $mensagem = 'Pronto, contato atualizado';
+        include 'telas/mensagem.php';
+    }
+    
+
+    $dados = explode(';', $contatos[$id]);//qubra da linha de contato a editar
+   include 'telas/editar.php';
 }

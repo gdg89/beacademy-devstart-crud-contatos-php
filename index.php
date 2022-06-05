@@ -11,6 +11,7 @@ match($url[0]){//pega primeira posição do array gerado pelo explode().
    '/cadastro' => cadastro(),
    '/listar' => listar(),
    '/excluir' => excluir(),
+   '/editar' => editar(),
    default => erro404(),
 };
 
