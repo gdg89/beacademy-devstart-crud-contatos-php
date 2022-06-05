@@ -1,7 +1,7 @@
 
 <div class="container pt-1">
         <main  class="bg-secondary bg-gradient bg-opacity-10 p-3">
-            <h1>Listar Contatos</h1>
+            <h1>Lista Contatos</h1>
             <hr>
             
             <table class= "table table-hover talble-striped">
@@ -15,8 +15,11 @@
                 <tbody>
                     <?php
                     foreach ($contatos as $cadaContato){
+                        $partes = explode(';', $cadaContato);
                          echo "<tr>
-                            <td>{$cadaContato}</td>
+                            <td>{$partes[0]}</td>
+                            <td>{$partes[1]}</td>
+                            <td>{$partes[2]}</td>
                             </tr>";
                         
                     }
